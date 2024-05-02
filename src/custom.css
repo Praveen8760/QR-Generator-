@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'light';
+    src: url('./font/Inter-Light.ttf');
+}
+
+@font-face {
+    font-family: 'medium';
+    src: url('./font/Inter-Medium.ttf');
+}
+@font-face {
+    font-family: 'regular';
+    src: url('./font/Inter-Regular.ttf');
+}
+@font-face {
+    font-family: 'semiBold';
+    src: url('./font/Inter-SemiBold.ttf');
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    height: 10px;
+    background: rgb(30, 64, 175);
+}
+
+
+#alert-box {
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body{
+    scroll-behavior: smooth;
+}
+
+.c_text_icon{
+    font-family: 'semiBold';
+}
+.c_text{
+    font-family: 'semiBold';
+    line-height: normal;
+}
+.c_sub_text{
+    font-family: 'light';
+}
+.sec_c_text{
+    font-family: 'semiBold';
+    line-height: normal;
+    font-weight:400;
+}
+.btn-text{
+    font-size: 18px;
+    font-family: 'medium';
+    line-height: normal;
+}
+
+#input_field{
+    border-radius: 20px;
+    /* width: 60%; */
+    border: 2px solid #000;
+}
+#color{
+    background-color: #fff;
+}
+#input_field::placeholder{
+    font-family: 'semiBold';
+    color: #000;
+
+}
+#input_field:focus{
+    border: 1px solid rgb(30, 64, 175);
+}
+
+
+.format_btn{
+    border: 1px solid rgb(30, 64, 175);
+    font-size: 18px;
+    font-family: 'medium';
+    line-height: normal;
+}
+
+#download_btn{
+    border: 1px solid rgb(30, 64, 175);
+    font-family: 'medium';
+    line-height: normal;
+    transition: all .2s ease-in;
+}
+
+#download_btn:hover{
+    background-color: rgb(30, 64, 175);
+    color: #fff;
+}
