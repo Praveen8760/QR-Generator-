@@ -4,8 +4,6 @@ function closeAlert() {
     document.getElementById("alert-box").style.display = "none";
 }
 
-
-
 const Generater_btn_node=document.getElementById("Generater_btn");
 const input_node=document.getElementById('input_field')
 const qr_node=document.getElementById('qrcode')
@@ -58,28 +56,56 @@ function btn_click(node){
 
 downloda_btn.addEventListener('click',downloadFile)
 
-function downloadFile(){
+// function downloadFile(){
+//     var imageURL = qr_node.childNodes[4].src;
+
+//         // Create a download link
+//     var link = document.createElement('a');
+//     link.download = `qr_code.${active_btn.toLowerCase()}`;
+//     link.href = imageURL;
+
+//         // Trigger click event on the link
+//     document.body.appendChild(link);
+//     link.click();
+//     document.body.removeChild(link);
+
+//     setTimeout(()=>{
+//         qr_node.innerHTML=''
+//         if(downloda_btn.classList.contains('hidden')){
+//             downloda_btn.classList.remove('hidden')
+//             downloda_btn.classList.add('visible')
+//         }
+//         else{
+//             downloda_btn.classList.add('hidden')
+//         }
+//     },3000)
+// }
+
+
+function downloadFile() {
     var imageURL = qr_node.childNodes[4].src;
+
+    // Fetch the image data
+    fetch(imageURL)
+    .then(response => response.blob())
+    .then(blob => {
+        // Create object URL from the blob
+        var url = window.URL.createObjectURL(blob);
+
         // Create a download link
-    var link = document.createElement('a');
-    link.download = `qr_code.${active_btn.toLowerCase()}`;
-    link.href = imageURL;
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = `qr_code.${active_btn.toLowerCase()}`;
 
         // Trigger click event on the link
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+        link.click();
 
-    setTimeout(()=>{
-        qr_node.innerHTML=''
-        if(downloda_btn.classList.contains('hidden')){
-            downloda_btn.classList.remove('hidden')
-            downloda_btn.classList.add('visible')
-        }
-        else{
-            downloda_btn.classList.add('hidden')
-        }
-    },3000)
+        // Revoke the object URL to free up memory
+        window.URL.revokeObjectURL(url);
+    })
+    .catch(error => {
+        console.error('Error downloading image:', error);
+    });
 }
 
 
