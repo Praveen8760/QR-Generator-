@@ -56,35 +56,9 @@ function btn_click(node){
 
 downloda_btn.addEventListener('click',downloadFile)
 
-// function downloadFile(){
-//     var imageURL = qr_node.childNodes[4].src;
-
-//         // Create a download link
-//     var link = document.createElement('a');
-//     link.download = `qr_code.${active_btn.toLowerCase()}`;
-//     link.href = imageURL;
-
-//         // Trigger click event on the link
-//     document.body.appendChild(link);
-//     link.click();
-//     document.body.removeChild(link);
-
-//     setTimeout(()=>{
-//         qr_node.innerHTML=''
-//         if(downloda_btn.classList.contains('hidden')){
-//             downloda_btn.classList.remove('hidden')
-//             downloda_btn.classList.add('visible')
-//         }
-//         else{
-//             downloda_btn.classList.add('hidden')
-//         }
-//     },3000)
-// }
-
 
 function downloadFile() {
     var imageURL = qr_node.childNodes[4].src;
-
     // Fetch the image data
     fetch(imageURL)
     .then(response => response.blob())
@@ -102,6 +76,16 @@ function downloadFile() {
 
         // Revoke the object URL to free up memory
         window.URL.revokeObjectURL(url);
+        setTimeout(()=>{
+            qr_node.innerHTML=''
+            if(downloda_btn.classList.contains('hidden')){
+                downloda_btn.classList.remove('hidden')
+                downloda_btn.classList.add('visible')
+            }
+            else{
+                downloda_btn.classList.add('hidden')
+            }
+        },10000)
     })
     .catch(error => {
         console.error('Error downloading image:', error);
