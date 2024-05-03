@@ -91,9 +91,9 @@ function downloadFile() {
     .then(blob => {
         // Create object URL from the blob
         var url = window.URL.createObjectURL(blob);
-
         // Create a download link
         var link = document.createElement('a');
+        console.log(link);
         link.href = url;
         link.download = `qr_code.${active_btn.toLowerCase()}`;
 
