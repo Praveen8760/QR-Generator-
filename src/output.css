@@ -835,7 +835,7 @@ video {
 }
 
 .drop-shadow-nav_bar {
-  --tw-drop-shadow: drop-shadow(0px 5px 4px #000000 5%);
+  --tw-drop-shadow: drop-shadow(0px 2px 8px rgba(0,0,0,.3));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 

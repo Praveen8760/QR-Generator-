@@ -17,7 +17,7 @@ module.exports = {
         'sec_1':'#F7F7F7'
       },
       dropShadow:{
-        'nav_bar':'0px 5px 4px #000000 5%'
+        'nav_bar':'0px 2px 8px rgba(0,0,0,.3)'
       },
       borderRadius:{
         'btn':'40px'
